@@ -1,26 +1,19 @@
-package com.example.todolistgraphqlexample;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+package com.example.todolistgraphqlexample.dto;
 
 
-
-@Entity
-public class Task {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TaskDto {
     private Long id;
     private String title;
     private String description;
     private boolean completed;
 
-    public Task() {}
+    public TaskDto() {}
 
-    public Task(String title, String description) {
+    public TaskDto(Long id, String title, String description, boolean completed) {
+        this.id = id;
         this.title = title;
         this.description = description;
+        this.completed = completed;
     }
 
     // Getters and Setters
@@ -47,6 +40,7 @@ public class Task {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public boolean isCompleted() {
         return completed;
     }
@@ -54,5 +48,4 @@ public class Task {
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
-
 }
